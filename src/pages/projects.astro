@@ -1,0 +1,53 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { Image } from '@astrojs/image/components';
+import { PROJECTS } from '@data/projects';
+---
+
+<Layout title="Projects" dataId="projects">
+  <section class="flex flex-col gap-3">
+    <h4 class="title-section">Projects</h4>
+    <div class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
+      {
+        PROJECTS.map(project => {
+          const thumbnail = project.images[0] ?? '/placeholder.png';
+
+          return (
+            <a href={`/projects/${project.id}`}>
+              <div class="h-full cursor-pointer rounded-lg bg-white border border-neutral-200 shadow-md dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-800">
+                <Image
+                  src={thumbnail}
+                  format="png"
+                  width={250 * 2}
+                  height={150 * 2}
+                  loading="lazy"
+                  class="rounded-t-lg w-full"
+                  alt="project thumbnail"
+                />
+                <section class="p-5">
+                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-neutral-900 dark:text-white">
+                    {project.title}
+                  </h5>
+                  <p class="mb-3 font-normal text-neutral-700 dark:text-neutral-400">
+                    {project.description}
+                  </p>
+                </section>
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import anime from 'animejs/lib/anime.es.js';
+
+  anime({
+    targets: '[data-id="projects"] > section',
+    translateY: [-100, 0],
+    easing: 'easeOutInBack',
+    duration: 800
+  });
+</script>

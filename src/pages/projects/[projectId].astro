@@ -1,0 +1,79 @@
+---
+import { PROJECTS } from '@data/projects';
+import { Image } from '@astrojs/image/components';
+import Layout from '@layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return PROJECTS.map(item => ({
+    params: {
+      projectId: item.id
+    },
+    props: {
+      project: item
+    }
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={project.title}>
+  <div class="flex flex-col gap-4">
+    <div class="flex flex-row items-center gap-2">
+      <h4 class="text-lg font-semibold">{project.title}</h4>
+    </div>
+    <p>{project.description_long}</p>
+    <ul class="flex flex-col gap-4 break-all">
+      {
+        project.website && (
+          <li>
+            <span class="bg-pink-100 text-pink-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-pink-200 dark:text-pink-900">
+              Website
+            </span>
+            <a href={project.website} target="_blank" class="link">
+              {project.website}
+            </a>
+          </li>
+        )
+      }
+      <li>
+        <span
+          class="bg-purple-100 text-purple-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-purple-200 dark:text-purple-900">
+          Stack
+        </span>
+        <span class="text-sm">{project.stack.join(', ')}</span>
+      </li>
+      {
+        project.repo && (
+          <li>
+            <span class="bg-yellow-100 text-yellow-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
+              Repo
+            </span>
+            <a href={project.repo} target="_blank" class="link">
+              {project.repo}
+            </a>
+          </li>
+        )
+      }
+    </ul>
+    <ul class="flex flex-col items-center gap-5">
+      {
+        project.images.map((image: string) => {
+          return (
+            <li class="w-full sm:w-[80%]">
+              <Image
+                src={image}
+                format="png"
+                width={250 * 2}
+                height={150 * 2}
+                loading="lazy"
+                class="w-full"
+                alt="project slide"
+              />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</Layout>

@@ -1,0 +1,55 @@
+---
+import { Icon } from 'astro-icon';
+---
+
+<button
+  role="button"
+  class="p-2 rounded-3xl dark:text-orange bg-slate-200 dark:bg-slate-700 hover:opacity-70"
+  title="Light mode"
+  aria-label="Theme switcher"
+  data-button-theme>
+  <Icon name="ic:outline-light-mode" width="30" class="animate-opacity hidden" data-icon-light />
+  <Icon name="ic:outline-dark-mode" width="30" class="animate-opacity hidden" data-icon-dark />
+</button>
+
+<script>
+  import { getData, setData } from '@utils/localStorage';
+  import { setTheme } from '@utils/theme';
+
+  const btnTheme = document.querySelector('[data-button-theme]');
+  const iconLight = document.querySelector('[data-button-theme] [data-icon-light]');
+  const iconDark = document.querySelector('[data-button-theme] [data-icon-dark]');
+  const setThemeState = themeHandler();
+
+  btnTheme?.addEventListener('click', () => {
+    setThemeState();
+  });
+
+  function themeHandler() {
+    let theme = getData<string>('theme') ?? 'light';
+
+    function iconHandler() {
+      if (theme === 'dark') {
+        iconDark?.classList.add('hidden');
+        iconLight?.classList.remove('hidden');
+        btnTheme?.setAttribute('title', 'Light mode');
+      } else {
+        iconDark?.classList.remove('hidden');
+        iconLight?.classList.add('hidden');
+        btnTheme?.setAttribute('title', 'Dark mode');
+      }
+    }
+
+    iconHandler();
+
+    return () => {
+      theme = theme === 'dark' ? 'light' : 'dark';
+
+      setData('theme', theme);
+      setTheme(theme);
+      iconHandler();
+
+      return theme;
+    };
+  }
+</script>

@@ -1,0 +1,50 @@
+---
+import Hero from '@components/Hero.astro';
+import Header from '@components/layout/Header.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  dataId?: string;
+}
+
+const { title = 'Giovanni Callegari portfolio', dataId } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Giovanni Callegari portfolio" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="h-screen w-screen transition-colors">
+    <Header />
+    <main class="max-w-screen-md mx-auto mt-10 px-3" data-id={dataId}>
+      <Hero />
+      <slot />
+    </main>
+    <footer class="w-full text-center text-sm py-12">
+      &copy; {new Date().getFullYear()} Giovanni Callegari. Made by me with <a
+        href="https://astro.build/"
+        class="text-orange hover:underline"
+        rel="noopener noreferrer"
+        target="_blank">Astro</a
+      >
+    </footer>
+  </body>
+</html>
+
+<script>
+  import { setTheme } from '@utils/theme.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTheme();
+  });
+</script>

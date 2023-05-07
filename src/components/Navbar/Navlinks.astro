@@ -1,0 +1,28 @@
+---
+const {isMobile = false} = Astro.props;
+---
+<ul class={`h-full flex ${isMobile ? 'flex-col justify-around' : 'flex-row gap-8'}`} data-navlinks>
+  <li>
+    <a href="/" class="hover:opacity-70">Home</a>
+  </li>
+  <li>
+    <a href="/projects" class="hover:opacity-70">Projects</a>
+  </li>
+  <li>
+    <a href="/contacts" class="hover:opacity-70">Contacts</a>
+  </li>
+</ul>
+
+<script>
+  const navLinksItems = document.querySelectorAll('[data-navlinks] li');
+
+  for (const li of navLinksItems ?? []) {
+    const href = li.querySelector('a')?.href.toLowerCase();
+
+    if (!href) continue;
+
+    if (window.location.toString().toLowerCase() === href) {
+      li.classList.add('active');
+    }
+  }
+</script>

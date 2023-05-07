@@ -1,0 +1,60 @@
+---
+import { Image } from '@astrojs/image/components';
+import avatar from '@public/avatar.png';
+import profile_photo from '@public/profile_photo.jpg';
+---
+
+<div class="mb-12 flex flex-col items-center justify-center text-left">
+  <Image src={avatar} width={350} height={350} loading="lazy" alt="avatar" data-hero-avatar />
+  <div class="-mt-8 flex flex-row flex-wrap-reverse items-center justify-center gap-2">
+    <div class="flex flex-col">
+      <h4 class="text-2xl sm:text-3xl font-bold text-red" data-hero-name>Giovanni Callegari</h4>
+      <h5 class="text-lg sm:text-xl font-semibold text-darkgreen dark:text-green" data-hero-role>
+        Software developer
+      </h5>
+      <div class="inline-flex gap-2 text-lg font-semibold text-orange" data-hero-motto>
+        <span>Insatiably</span>
+        <span>curious</span>
+        <span>🤓</span>
+      </div>
+    </div>
+    <Image
+      alt="profile"
+      src={profile_photo}
+      width={80}
+      height={80}
+      class="rounded-full object-cover"
+    />
+  </div>
+</div>
+
+<script>
+  import anime from 'animejs/lib/anime.es.js';
+  import { getData, setData } from '@utils/sessionStorage';
+
+  const hero = getData('hero');
+
+  if (!hero) {
+    setData('hero', true);
+
+    anime({
+      targets: '[data-hero-name]',
+      translateY: [-100, 0],
+      easing: 'easeOutBounce'
+    });
+
+    anime({
+      targets: '[data-hero-role]',
+      translateX: [-100, 0],
+      easing: 'spring(1, 80, 10, 40)'
+    });
+
+    anime({
+      targets: '[data-hero-motto] span',
+      translateY: [20, 0],
+      opacity: [0, 1],
+      easing: 'easeInOutExpo',
+      delay: anime.stagger(100)
+    });
+  }
+</script>

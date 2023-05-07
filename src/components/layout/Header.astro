@@ -1,0 +1,17 @@
+---
+import ButtonTheme from "../Navbar/ButtonTheme.astro";
+import MobileNav from "../Navbar/MobileNav.astro";
+import Navlinks from "../Navbar/Navlinks.astro";
+---
+<header class="w-full fixed top-0 p-1 mb-2 z-10">
+  <div class="max-w-screen-md mx-3 sm:mx-auto flex flex-row items-center justify-between gap-4">
+    <MobileNav />
+    <h2 class="hover:underline hover:underline-offset-4 text-4xl font-bold color-green-orange">
+      <a href="/">Gc</a>
+    </h2>
+    <nav class="hidden sm:block">
+      <Navlinks />
+    </nav>
+    <ButtonTheme />
+  </div>
+</header>
