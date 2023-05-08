@@ -1,6 +1,6 @@
 import { getData, setData } from './localStorage';
 
-export const setTheme = (theme?: string) => {
+export const changeTheme = (theme?: string) => {
   let themeFromStorage = theme ?? getData('theme');
 
   if (!themeFromStorage) {
@@ -11,6 +11,19 @@ export const setTheme = (theme?: string) => {
     setData('theme', themeFromStorage);
   }
 
-  document.documentElement.classList.remove('dark', 'light');
-  document.documentElement.classList.add(themeFromStorage);
+  if (themeFromStorage === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+};
+
+export const getTheme = () => getData<string>('theme');
+
+export const setTheme = (theme: string) => setData('theme', theme);
+
+export const toggleTheme = () => {
+  const theme = getData('theme') === 'dark' ? 'light' : 'dark';
+  setData('theme', theme);
+  changeTheme(theme);
 };

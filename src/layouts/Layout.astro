@@ -12,7 +12,7 @@ const { title = 'Giovanni Callegari portfolio', dataId } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,9 +42,9 @@ const { title = 'Giovanni Callegari portfolio', dataId } = Astro.props;
 </html>
 
 <script>
-  import { setTheme } from '@utils/theme.js';
+  import { changeTheme } from '@utils/theme';
 
   document.addEventListener('DOMContentLoaded', () => {
-    setTheme();
+    changeTheme();
   });
 </script>

@@ -13,8 +13,7 @@ import { Icon } from 'astro-icon';
 </button>
 
 <script>
-  import { getData, setData } from '@utils/localStorage';
-  import { setTheme } from '@utils/theme';
+  import { getTheme, setTheme, changeTheme } from '@utils/theme';
 
   const btnTheme = document.querySelector('[data-button-theme]');
   const iconLight = document.querySelector('[data-button-theme] [data-icon-light]');
@@ -26,7 +25,7 @@ import { Icon } from 'astro-icon';
   });
 
   function themeHandler() {
-    let theme = getData<string>('theme') ?? 'light';
+    let theme = getTheme();
 
     function iconHandler() {
       if (theme === 'dark') {
@@ -45,8 +44,8 @@ import { Icon } from 'astro-icon';
     return () => {
       theme = theme === 'dark' ? 'light' : 'dark';
 
-      setData('theme', theme);
       setTheme(theme);
+      changeTheme(theme);
       iconHandler();
 
       return theme;
