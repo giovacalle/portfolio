@@ -27,6 +27,8 @@ import { Icon } from 'astro-icon';
   function themeHandler() {
     let theme = getTheme();
 
+    changeTheme();
+
     function iconHandler() {
       if (theme === 'dark') {
         iconDark?.classList.add('hidden');
