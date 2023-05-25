@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -12,7 +12,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
     "paths": {
@@ -22,9 +21,10 @@
       "@data/*": ["src/data/*"],
       "@custom-types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"]
-    }
+    },
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   },
-  "include": ["src/*.ts", "src/*.tsx"],
   "exclude": ["node_modules"],
   "extends": "astro/tsconfigs/strict"
 }

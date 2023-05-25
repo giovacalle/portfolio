@@ -1,10 +1,11 @@
 # My Portfolio Website
 
-Welcome to my portfolio website! This website is built with Astro.js, TypeScript, Tailwind CSS. I was curious about Astro.js, so what better way to learn than to build my own portfolio website with it?
+Welcome to my portfolio website! This website is built with Astro.js, SolidJS, TypeScript, Tailwind CSS. I was curious about Astro.js, so what better way to learn than to build my own portfolio website with it?
 
 ## Technologies Used
 
 - [Astro.js](https://astro.build/)
+- [SolidJS](https://www.solidjs.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [pnpm](https://pnpm.io/)

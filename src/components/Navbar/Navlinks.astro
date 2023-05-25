@@ -1,6 +1,7 @@
 ---
-const {isMobile = false} = Astro.props;
+const { isMobile = false } = Astro.props;
 ---
+
 <ul class={`h-full flex ${isMobile ? 'flex-col justify-around' : 'flex-row gap-8'}`} data-navlinks>
   <li>
     <a href="/" class="hover:opacity-70">Home</a>
@@ -21,7 +22,7 @@ const {isMobile = false} = Astro.props;
 
     if (!href) continue;
 
-    if (window.location.toString().toLowerCase() === href) {
+    if (location.toString().toLowerCase() === href) {
       li.classList.add('active');
     }
   }
