@@ -1,8 +1,10 @@
 ---
-import ButtonTheme from "../Navbar/ButtonTheme.astro";
-import MobileNav from "../Navbar/MobileNav.astro";
-import Navlinks from "../Navbar/Navlinks.astro";
+import MobileNav from '../Navbar/MobileNav.astro';
+import Navlinks from '../Navbar/Navlinks.astro';
+
+import { ThemeToggle } from '../Navbar/ThemeToggle';
 ---
+
 <header class="w-full fixed top-0 p-1 mb-2 z-10">
   <div class="max-w-screen-md mx-3 sm:mx-auto flex flex-row items-center justify-between gap-4">
     <MobileNav />
@@ -12,6 +14,6 @@ import Navlinks from "../Navbar/Navlinks.astro";
     <nav class="hidden sm:block">
       <Navlinks />
     </nav>
-    <ButtonTheme />
+    <ThemeToggle client:visible />
   </div>
 </header>

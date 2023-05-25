@@ -23,6 +23,19 @@ const { title = 'Giovanni Callegari portfolio', dataId } = Astro.props;
     <link rel="manifest" href="/manifest.json" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script is:inline>
+      const isDark = () => {
+        if (typeof localStorage === 'undefined') return false;
+        const theme = localStorage.getItem('theme');
+        if (theme) return theme === 'dark';
+        if (matchMedia('(prefers-color-scheme: dark)').matches) {
+          localStorage.setItem('theme', 'dark');
+          return true;
+        }
+        return false;
+      };
+      document.documentElement.classList.toggle('dark', isDark());
+    </script>
   </head>
   <body class="h-screen w-screen transition-colors">
     <Header />
