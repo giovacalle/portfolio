@@ -1,14 +1,14 @@
 ---
-import { Icon } from 'astro-icon'
-import Navlinks from "./Navlinks.astro";
+import { Icon } from 'astro-icon';
+import Navlinks from './Navlinks.astro';
 ---
+
 <button
   role="button"
   class="sm:hidden hover:opacity-70"
   title="Show menu"
   aria-label="Menu"
-  data-toggle-menu    
-  >
+  data-toggle-menu>
   <Icon name="ic:round-menu" width="40" data-icon-menu />
   <Icon name="ic:round-close" width="40" class="hidden" data-icon-close />
 </button>
@@ -23,8 +23,8 @@ import Navlinks from "./Navlinks.astro";
   const navMobile = document.querySelector('.nav-mobile');
   const setMenuState = mobileMenuHandler();
 
-  toggleMenu?.addEventListener("keyup", (event) => {
-    if ((event as KeyboardEvent).key == "Escape") {
+  toggleMenu?.addEventListener('keyup', event => {
+    if ((event as KeyboardEvent).key == 'Escape') {
       setMenuState(true);
     }
   });
@@ -35,23 +35,23 @@ import Navlinks from "./Navlinks.astro";
 
   function mobileMenuHandler() {
     let isOpen = false;
-    
+
     return (bForceClose = false) => {
       if (isOpen || bForceClose) {
         iconMenu?.classList.remove('hidden');
         iconClose?.classList.add('hidden');
-        toggleMenu?.setAttribute("title", "Show menu");
+        toggleMenu?.setAttribute('title', 'Show menu');
         navMobile?.classList.add('hidden');
       } else {
         iconMenu?.classList.add('hidden');
         iconClose?.classList.remove('hidden');
-        toggleMenu?.setAttribute("title", "Close menu");
+        toggleMenu?.setAttribute('title', 'Close menu');
         navMobile?.classList.remove('hidden');
       }
-      
+
       isOpen = !isOpen;
 
       return isOpen;
-    }
+    };
   }
 </script>
