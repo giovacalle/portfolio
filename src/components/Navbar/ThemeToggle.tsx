@@ -23,7 +23,7 @@ export const ThemeToggle = () => {
         fallback={
           <svg
             viewBox="0 0 24 24"
-            width="30"
+            width="26"
             class="animate-opacity"
             astro-icon="ic:outline-dark-mode">
             <path
@@ -33,7 +33,7 @@ export const ThemeToggle = () => {
         }>
         <svg
           viewBox="0 0 24 24"
-          width="30"
+          width="26"
           class="animate-opacity"
           astro-icon="ic:outline-light-mode">
           <path
