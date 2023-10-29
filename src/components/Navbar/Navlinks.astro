@@ -1,29 +1,42 @@
 ---
 const { isMobile = false } = Astro.props;
+const isActive = (path: string) => Astro.url.pathname === path;
 ---
 
-<ul class={`h-full flex ${isMobile ? 'flex-col justify-around' : 'flex-row gap-8'}`} data-navlinks>
-  <li>
+<ul
+  class:list={[
+    'h-full flex',
+    {
+      'flex-col justify-around': isMobile,
+      'flex-row gap-8': !isMobile
+    }
+  ]}
+  data-navlinks>
+  <li
+    class:list={[
+      'w-full py-1 px-3 hover:underline hover:underline-offset-4 font-bold text-center text-lg text-green-orange',
+      {
+        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/')
+      }
+    ]}>
     <a href="/" class="hover:opacity-70">Home</a>
   </li>
-  <li>
+  <li
+    class:list={[
+      'w-full py-1 px-3 hover:underline hover:underline-offset-4 font-bold text-center text-lg text-green-orange',
+      {
+        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/projects')
+      }
+    ]}>
     <a href="/projects" class="hover:opacity-70">Projects</a>
   </li>
-  <li>
+  <li
+    class:list={[
+      'w-full py-1 px-3 hover:underline hover:underline-offset-4 font-bold text-center text-lg text-green-orange',
+      {
+        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/test')
+      }
+    ]}>
     <a href="/test" class="hover:opacity-70">Test</a>
   </li>
 </ul>
-
-<script>
-  const navLinksItems = document.querySelectorAll('[data-navlinks] li');
-
-  for (const li of navLinksItems ?? []) {
-    const href = li.querySelector('a')?.href.toLowerCase();
-
-    if (!href) continue;
-
-    if (location.toString().toLowerCase() === href) {
-      li.classList.add('active');
-    }
-  }
-</script>

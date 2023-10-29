@@ -30,7 +30,10 @@ const { project } = Astro.props;
             <span class="bg-pink-100 text-pink-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-pink-200 dark:text-pink-900">
               Website
             </span>
-            <a href={project.website} target="_blank" class="link">
+            <a
+              href={project.website}
+              target="_blank"
+              class="inline-flex items-center gap-2 underline underline-offset-4 text-green-orange">
               {project.website}
             </a>
           </li>
@@ -49,7 +52,10 @@ const { project } = Astro.props;
             <span class="bg-yellow-100 text-yellow-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
               Repo
             </span>
-            <a href={project.repo} target="_blank" class="link">
+            <a
+              href={project.repo}
+              target="_blank"
+              class="inline-flex items-center gap-2 underline underline-offset-4 text-green-orange">
               {project.repo}
             </a>
           </li>

@@ -1,0 +1,35 @@
+---
+import LayoutTest from '@layouts/LayoutTest.astro';
+import Tile from '@components/Tile/Tile';
+import Icon from 'astro-icon';
+import avatar from '@public/avatar.jpg?url';
+---
+
+<LayoutTest title="Contacts" dataId="contacts">
+  <Tile
+    round
+    class="bg-cover bg-center bg-no-repeat"
+    style={{ 'background-image': `url(${avatar})` }}>
+    <a
+      href="/me"
+      class="w-full h-full py-3 flex flex-col justify-center items-center bg-black-rich/10">
+      <h2 class="text-white text-xl font-bold">About me</h2>
+    </a>
+  </Tile>
+  <Tile round class="bg-blue-500">
+    <a href="/techs" class="w-full h-full py-3 flex flex-col items-center justify-between">
+      <Icon name="mdi:code" class="w-3/4" />
+      <h2 class="text-white text-xl font-bold">Techs</h2>
+    </a>
+  </Tile>
+  <Tile round class="bg-yellow-500">
+    <a href="/projects" class="w-full h-full py-3 flex flex-col items-center justify-between">
+      <Icon name="mdi:draw" class="w-3/4" />
+      <h2 class="text-white text-xl font-bold">Projects</h2>
+    </a>
+  </Tile>
+</LayoutTest>
+
+<script>
+  // todo: add anime effects
+</script>

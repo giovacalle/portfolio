@@ -1,0 +1,53 @@
+---
+import Hero from '@components/Hero.astro';
+import Header from '@components/layout/Header.astro';
+import '../styles/global.css';
+import Footer from '@components/layout/Footer.astro';
+import HeroNew from '@components/HeroNew.astro';
+
+export interface Props {
+  title: string;
+  dataId?: string;
+}
+
+const { title = 'Giovanni Callegari portfolio', dataId } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Giovanni Callegari portfolio" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script is:inline>
+    const isDark = () => {
+      if (typeof localStorage === 'undefined') return false;
+      const theme = localStorage.getItem('theme');
+      if (theme) return theme === 'dark';
+      if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        localStorage.setItem('theme', 'dark');
+        return true;
+      }
+      return false;
+    };
+    document.documentElement.classList.toggle('dark', isDark());
+    </script>
+  </head>
+  <body
+    class="h-screen w-screen bg-white text-black overflow-x-hidden dark:bg-black-rich dark:text-white transition-colors">
+    <Header />
+    <HeroNew />
+    <main
+      class="max-w-screen-md mx-auto my-5 px-3 grid place-items-center grid-cols-1 md:grid-cols-3 gap-10"
+      data-id={dataId}>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

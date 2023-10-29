@@ -12,7 +12,9 @@ import Navlinks from './Navlinks.astro';
   <Icon name="ic:round-menu" width="40" data-icon-menu />
   <Icon name="ic:round-close" width="40" class="hidden" data-icon-close />
 </button>
-<nav class="nav-mobile hidden">
+<nav
+  class="h-[200px] w-[150px] fixed top-16 left-1 border border-slate-400 dark:border-slate-600 rounded-md backdrop-blur-sm bg-white/70 dark:bg-black-rich/70"
+  data-nav-mobile>
   <Navlinks isMobile={true} />
 </nav>
 
@@ -20,7 +22,7 @@ import Navlinks from './Navlinks.astro';
   const toggleMenu = document.querySelector('[data-toggle-menu]');
   const iconMenu = document.querySelector('[data-toggle-menu] [data-icon-menu]');
   const iconClose = document.querySelector('[data-toggle-menu] [data-icon-close]');
-  const navMobile = document.querySelector('.nav-mobile');
+  const navMobile = document.querySelector('[data-nav-mobile]');
   const setMenuState = mobileMenuHandler();
 
   toggleMenu?.addEventListener('keyup', event => {
@@ -35,6 +37,8 @@ import Navlinks from './Navlinks.astro';
 
   function mobileMenuHandler() {
     let isOpen = false;
+
+    navMobile?.classList.add('hidden');
 
     return (bForceClose = false) => {
       if (isOpen || bForceClose) {
