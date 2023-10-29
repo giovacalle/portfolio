@@ -6,14 +6,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        blackTransparent: 'rgb(26, 32, 44, .9)',
-        whiteTransparent: 'rgb(252, 255, 247, .9)',
         gray: '#1A202C',
         darkgreen: '#046865',
         green: '#21A0A0',
         orange: '#FFC700',
         pink: '#AC80A0', // Opera Mauve
-        black: '#151515',
+        black: {
+          DEFAULT: '#151515',
+          rich: '#001011'
+        },
         white: '#FCFFF7'
       },
       keyframes: {

@@ -6,7 +6,9 @@ import { PROJECTS } from '@data/projects';
 
 <Layout title="Projects" dataId="projects">
   <section class="flex flex-col gap-3">
-    <h4 class="title-section">Projects</h4>
+    <h4 class="w-max mb-3 text-xl text-center font-semibold text-darkgreen dark:text-orange">
+      Projects
+    </h4>
     <div class="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
       {
         PROJECTS.map(project => {
