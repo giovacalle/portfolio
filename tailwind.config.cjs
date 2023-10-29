@@ -12,7 +12,7 @@ module.exports = {
         darkgreen: '#046865',
         green: '#21A0A0',
         orange: '#FFC700',
-        red: '#E53D00',
+        pink: '#AC80A0', // Opera Mauve
         black: '#151515',
         white: '#FCFFF7'
       },
