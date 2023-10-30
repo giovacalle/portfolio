@@ -1,9 +1,9 @@
 ---
-import Page from '@layouts/LayoutPage.astro';
+import Layout from '@layouts/LayoutPage.astro';
 const yearsExperience = new Date().getFullYear() - 2018;
 ---
 
-<Page>
+<Layout title="About me">
   <h1 class="text-2xl text-green-orange font-bold">About me</h1>
   <p>
     Nice to meet you, I&apos;m Giovanni Callegari, software developer with {yearsExperience}+ years
@@ -101,4 +101,4 @@ const yearsExperience = new Date().getFullYear() - 2018;
     In addition I really love sports, especially do weights, also basketball and swimming which are my
     favorite since I was a child. For four years, though, I’ve been going to the gym.
   </p>
-</Page>
+</Layout>
