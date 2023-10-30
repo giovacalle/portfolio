@@ -1,15 +1,10 @@
 ---
-import Hero from '@components/Hero.astro';
+import Hero from '@components/HeroHome.astro';
 import Header from '@components/layout/Header.astro';
-import '../styles/global.css';
 import Footer from '@components/layout/Footer.astro';
+import '../styles/global.css';
 
-export interface Props {
-  title: string;
-  dataId?: string;
-}
-
-const { title = 'Giovanni Callegari portfolio', dataId } = Astro.props;
+const { title = 'Giovanni Callegari portfolio' } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -38,9 +33,11 @@ const { title = 'Giovanni Callegari portfolio', dataId } = Astro.props;
     document.documentElement.classList.toggle('dark', isDark());
     </script>
   </head>
-  <body class="h-screen w-screen transition-colors">
+  <body
+    class="h-screen w-screen bg-white text-black overflow-x-hidden dark:bg-black-rich dark:text-white transition-colors">
     <Header />
-    <main class="max-w-screen-md mx-auto mt-10 px-3" data-id={dataId}>
+    <main
+      class="max-w-screen-md mx-auto mb-5 px-3 grid place-items-center grid-cols-1 md:grid-cols-3 gap-10">
       <Hero />
       <slot />
     </main>
