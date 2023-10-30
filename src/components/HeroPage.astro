@@ -1,14 +1,14 @@
 ---
-import avatar from '@public/avatar.jpg?url';
 import Icon from 'astro-icon';
+import avatar from '@public/avatar.jpg?url';
 
-const path = Astro.url.pathname ?? '/me';
+const path = Astro.url.pathname;
 
 type Page = astroHTML.JSX.IntrinsicElements['div'] & {
   icon?: string;
 };
 
-const page: Page | undefined = {
+const pages: { [key: string]: Page } = {
   '/me': {
     style: {
       backgroundImage: `url(${avatar})`
@@ -23,15 +23,14 @@ const page: Page | undefined = {
     icon: 'mdi:draw',
     class: 'bg-gradient-to-r from-green to-blue-500'
   }
-}[path];
+};
+
+const page = pages[path] ?? pages['/me'];
 ---
 
 <div
   class=""
-  class:list={[
-    'w-full h-60 mt-[66px] flex items-center justify-center rounded-b-xl',
-    [page?.class]
-  ]}
+  class:list={['w-full h-60 mt-[66px] flex items-center justify-center rounded-b-xl', [page.class]]}
   style={page?.style}>
-  {page?.icon && <Icon name={page.icon} class="w-52" />}
+  {page.icon && <Icon name={page.icon} class="w-52" />}
 </div>
