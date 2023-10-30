@@ -1,0 +1,36 @@
+---
+import avatar from '@public/avatar.jpg?url';
+import Icon from 'astro-icon';
+
+const path = Astro.url.pathname;
+
+type Page = astroHTML.JSX.IntrinsicElements['div'] & {
+  icon?: string;
+};
+
+const page: Page | undefined = {
+  '/me': {
+    style: {
+      backgroundImage: `url(${avatar})`
+    },
+    class: 'bg-cover bg-bottom bg-no-repeat'
+  },
+  '/techs': {
+    icon: 'mdi:code',
+    class: 'bg-gradient-to-r from-violet-400 to-red-500'
+  },
+  '/projects': {
+    icon: 'mdi:draw',
+    class: 'bg-gradient-to-r from-green to-blue-500'
+  }
+}[path];
+
+if (!page) return Astro.redirect('/404');
+---
+
+<div
+  class=""
+  class:list={['w-full h-60 mt-[66px] flex items-center justify-center rounded-b-xl', [page.class]]}
+  style={page.style}>
+  {page.icon && <Icon name={page.icon} class="w-52" />}
+</div>
