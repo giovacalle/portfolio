@@ -2,7 +2,7 @@
 import avatar from '@public/avatar.jpg?url';
 import Icon from 'astro-icon';
 
-const path = Astro.url.pathname;
+const path = Astro.url.pathname ?? '/me';
 
 type Page = astroHTML.JSX.IntrinsicElements['div'] & {
   icon?: string;
@@ -24,13 +24,14 @@ const page: Page | undefined = {
     class: 'bg-gradient-to-r from-green to-blue-500'
   }
 }[path];
-
-if (!page) return Astro.redirect('/404');
 ---
 
 <div
   class=""
-  class:list={['w-full h-60 mt-[66px] flex items-center justify-center rounded-b-xl', [page.class]]}
-  style={page.style}>
-  {page.icon && <Icon name={page.icon} class="w-52" />}
+  class:list={[
+    'w-full h-60 mt-[66px] flex items-center justify-center rounded-b-xl',
+    [page?.class]
+  ]}
+  style={page?.style}>
+  {page?.icon && <Icon name={page.icon} class="w-52" />}
 </div>
