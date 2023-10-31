@@ -2,13 +2,13 @@
 import Layout from '@layouts/LayoutHome.astro';
 import Tile from '@components/Tile/Tile';
 import Icon from 'astro-icon';
-import avatar from '@public/avatar.jpg?url';
+import avatar from '/avatar.jpg?url';
 ---
 
 <Layout title="Giovanni's portfolio">
   <Tile
     round
-    class="bg-cover bg-center bg-no-repeat shadow-sm shadow-black-rich dark:shadow-slate-600 transition-all hover:scale-110"
+    class="bg-cover bg-center bg-no-repeat shadow-sm shadow-black-rich dark:shadow-slate-600 transition-all hover:scale-105"
     style={{ 'background-image': `url(${avatar})` }}
     data-tile-me>
     <a
@@ -19,7 +19,7 @@ import avatar from '@public/avatar.jpg?url';
   </Tile>
   <Tile
     round
-    class="bg-gradient-to-r from-violet-400 to-red-500 shadow-sm shadow-black-rich dark:shadow-slate-600 transition-all hover:scale-110">
+    class="bg-gradient-to-r from-violet-400 to-red-500 shadow-sm shadow-black-rich dark:shadow-slate-600 transition-all hover:scale-105">
     <a
       href="/techs"
       class="w-full h-full py-3 flex flex-col items-center justify-between text-white">
@@ -29,7 +29,7 @@ import avatar from '@public/avatar.jpg?url';
   </Tile>
   <Tile
     round
-    class="bg-gradient-to-r from-green to-blue-500 shadow-sm shadow-black-rich dark:shadow-slate-600 transition-all hover:scale-110">
+    class="bg-gradient-to-r from-green to-blue-500 shadow-sm shadow-black-rich dark:shadow-slate-600 transition-all hover:scale-105">
     <a
       href="/projects"
       class="w-full h-full py-3 flex flex-col items-center justify-between text-white">

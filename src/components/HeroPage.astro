@@ -1,31 +1,6 @@
 ---
 import Icon from 'astro-icon';
-import avatar from '@public/avatar.jpg?url';
-
-const path = Astro.url.pathname;
-
-type Page = astroHTML.JSX.IntrinsicElements['div'] & {
-  icon?: string;
-};
-
-const pages: { [key: string]: Page } = {
-  '/me': {
-    style: {
-      backgroundImage: `url(${avatar})`
-    },
-    class: 'bg-cover bg-bottom bg-no-repeat'
-  },
-  '/techs': {
-    icon: 'mdi:code',
-    class: 'bg-gradient-to-r from-violet-400 to-red-500'
-  },
-  '/projects': {
-    icon: 'mdi:draw',
-    class: 'bg-gradient-to-r from-green to-blue-500'
-  }
-};
-
-const page = pages[path] ?? pages['/me'];
+const { page } = Astro.props;
 ---
 
 <div
