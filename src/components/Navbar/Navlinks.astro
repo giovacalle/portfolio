@@ -25,7 +25,7 @@ const isActive = (path: string) => Astro.url.pathname === path;
     class:list={[
       'w-full py-1 px-3 hover:underline hover:underline-offset-4 font-bold text-center text-lg text-green-orange',
       {
-        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/techs')
+        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/techs.html')
       }
     ]}>
     <a href="/techs.html" class="hover:opacity-70">Techs</a>
@@ -34,7 +34,7 @@ const isActive = (path: string) => Astro.url.pathname === path;
     class:list={[
       'w-full py-1 px-3 hover:underline hover:underline-offset-4 font-bold text-center text-lg text-green-orange',
       {
-        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/projects')
+        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/projects.html')
       }
     ]}>
     <a href="/projects.html" class="hover:opacity-70">Projects</a>
