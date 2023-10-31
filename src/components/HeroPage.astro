@@ -1,12 +1,32 @@
 ---
 import Icon from 'astro-icon';
-const url = Astro.url.pathname;
-const { page } = Astro.props;
+import avatar from '/avatar.jpg?url';
+
+type Page = astroHTML.JSX.IntrinsicElements['div'] & {
+  icon?: string;
+};
+const pages: { [key: string]: Page } = {
+  '/me.html': {
+    style: {
+      backgroundImage: `url(${avatar})`
+    },
+    class: 'bg-cover bg-bottom bg-no-repeat'
+  },
+  '/techs.html': {
+    icon: 'mdi:code',
+    class: 'bg-gradient-to-r from-violet-400 to-red-500'
+  },
+  '/projects.html': {
+    icon: 'mdi:draw',
+    class: 'bg-gradient-to-r from-green to-blue-500'
+  }
+};
+
+const page = pages[Astro.url.pathname];
 ---
 
 <div
   class:list={['w-full h-60 mt-[66px] flex items-center justify-center rounded-b-xl', [page.class]]}
   style={page?.style}>
   {page.icon && <Icon name={page.icon} class="w-52" />}
-  {url}
 </div>
