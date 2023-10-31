@@ -2,10 +2,7 @@
 import Hero from '@components/HeroPage.astro';
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
-import { retrievePage } from '@utils/retrievePage';
 import '../styles/global.css';
-
-const page = retrievePage(Astro.url.pathname);
 
 const { title = 'Portfolio' } = Astro.props;
 ---
@@ -40,7 +37,7 @@ const { title = 'Portfolio' } = Astro.props;
     class="h-screen w-screen bg-white text-black overflow-x-hidden dark:bg-black-rich dark:text-white transition-colors">
     <Header />
     <main class="max-w-screen-md mx-auto mb-5 px-3 flex flex-col items-start gap-5">
-      <Hero page={page} />
+      <Hero />
       <slot />
     </main>
     <Footer />
