@@ -41,7 +41,6 @@ const { title = 'Portfolio' } = Astro.props;
     <Header />
     <main class="max-w-screen-md mx-auto mb-5 px-3 flex flex-col items-start gap-5">
       <Hero page={page} />
-      <span>{Astro.url.pathname}</span>
       <slot />
     </main>
     <Footer />
