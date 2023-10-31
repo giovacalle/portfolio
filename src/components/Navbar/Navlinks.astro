@@ -28,7 +28,7 @@ const isActive = (path: string) => Astro.url.pathname === path;
         'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/techs')
       }
     ]}>
-    <a href="/techs" class="hover:opacity-70">Techs</a>
+    <a href="/techs.html" class="hover:opacity-70">Techs</a>
   </li>
   <li
     class:list={[
@@ -37,6 +37,6 @@ const isActive = (path: string) => Astro.url.pathname === path;
         'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/projects')
       }
     ]}>
-    <a href="/projects" class="hover:opacity-70">Projects</a>
+    <a href="/projects.html" class="hover:opacity-70">Projects</a>
   </li>
 </ul>
