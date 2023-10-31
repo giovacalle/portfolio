@@ -3,11 +3,8 @@ import Icon from 'astro-icon';
 const { page } = Astro.props;
 ---
 
-<!-- <div
+<div
   class:list={['w-full h-60 mt-[66px] flex items-center justify-center rounded-b-xl', [page.class]]}
   style={page?.style}>
   {page.icon && <Icon name={page.icon} class="w-52" />}
-</div> -->
-<div>
-  {JSON.stringify(page)}
 </div>
