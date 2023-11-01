@@ -2,7 +2,36 @@
 import Icon from 'astro-icon';
 ---
 
-<footer class="w-full my-10 flex flex-col items-center gap-5">
+<footer class="w-full my-10 flex flex-col items-center gap-4">
+  <div class="flex flex-row items-center justify-between gap-16 text-sm">
+    <a
+      class="flex flex-col items-center gap-1"
+      href="https://www.linkedin.com/in/giovanni-c-4a11571b6"
+      target="_blank"
+      rel="noreferrer"
+      title="LinkedIn"
+      aria-label="LinkedIn">
+      <Icon name="bi:linkedin" class="w-10 text-[#0077B5] bg-white rounded-md" />
+    </a>
+    <a
+      class="flex flex-col items-center gap-1"
+      href="https://github.com/giovacalle"
+      target="_blank"
+      rel="noreferrer"
+      title="Github"
+      aria-label="Github">
+      <Icon name="mdi:github" class="w-10" />
+    </a>
+    <a
+      class="flex flex-col items-center gap-1"
+      href="mailto:giovacalle.dev@gmail.com"
+      target="_blank"
+      rel="noreferrer"
+      title="Email"
+      aria-label="Email">
+      <Icon name="logos:google-gmail" class="w-10" />
+    </a>
+  </div>
   <span class="text-sm"
     >&copy; {new Date().getFullYear()} Giovanni Callegari. Made by me with <a
       href="https://astro.build/"
@@ -11,30 +40,4 @@ import Icon from 'astro-icon';
       target="_blank">Astro</a
     ></span
   >
-  <div class="flex flex-row items-center justify-between gap-16 text-sm">
-    <a
-      class="flex flex-col items-center gap-1"
-      href="https://www.linkedin.com/in/giovanni-c-4a11571b6"
-      target="_blank"
-      rel="noreferrer">
-      <Icon name="bi:linkedin" class="w-12 text-[#0077B5] bg-white rounded-md" />
-      <span>LinkedIn</span>
-    </a>
-    <a
-      class="flex flex-col items-center gap-1"
-      href="https://github.com/giovacalle"
-      target="_blank"
-      rel="noreferrer">
-      <Icon name="mdi:github" class="w-12" />
-      <span>Github</span>
-    </a>
-    <a
-      class="flex flex-col items-center gap-1"
-      href="mailto:giovacalle.dev@gmail.com"
-      target="_blank"
-      rel="noreferrer">
-      <Icon name="logos:google-gmail" class="w-12" />
-      <span>Email</span>
-    </a>
-  </div>
 </footer>
