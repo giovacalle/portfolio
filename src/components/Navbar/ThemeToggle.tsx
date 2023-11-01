@@ -1,11 +1,12 @@
 import { Show, createSignal, onMount } from 'solid-js';
-import { getTheme, toggleTheme } from '@utils/theme';
+import { getTheme, toggleTheme, setInitialTheme } from '@utils/theme';
 
 export const ThemeToggle = () => {
   const [theme, setTheme] = createSignal('light');
 
   onMount(() => {
     setTheme(getTheme() ?? 'light');
+    document.addEventListener('astro:after-swap', setInitialTheme);
   });
 
   return (
