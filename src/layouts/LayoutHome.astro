@@ -1,43 +1,36 @@
 ---
 import Hero from '@components/HeroHome.astro';
+import Head from '@components/layout/Head.astro';
 import Header from '@components/layout/Header.astro';
 import Footer from '@components/layout/Footer.astro';
+import { fade } from 'astro:transitions';
 import '../styles/global.css';
 
 const { title = 'Giovanni Callegari portfolio' } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Giovanni Callegari portfolio" />
-    <meta name="theme-color" content="#000000" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+<html lang="en" transition:animate={fade({ duration: '0.2s' })}>
+  <Head title={title} />
+  <body
+    class="h-screen w-screen flex flex-col items-center justify-between bg-white text-black overflow-x-hidden dark:bg-black-rich dark:text-white">
     <script is:inline>
-    const isDark = () => {
-      if (typeof localStorage === 'undefined') return false;
-      const theme = localStorage.getItem('theme');
-      if (theme) return theme === 'dark';
+    const setThemeInitial = () => {
+      if (localStorage) {
+        const theme = localStorage.getItem('theme');
+        if (theme) document.documentElement.classList.add(theme);
+      }
       if (matchMedia('(prefers-color-scheme: dark)').matches) {
         localStorage.setItem('theme', 'dark');
-        return true;
+        document.documentElement.classList.add('dark');
       }
-      return false;
     };
-    document.documentElement.classList.toggle('dark', isDark());
+    setThemeInitial();
+    document.addEventListener('astro:after-swap', setThemeInitial);
     </script>
-  </head>
-  <body
-    class="h-screen w-screen bg-white text-black overflow-x-hidden dark:bg-black-rich dark:text-white transition-colors">
     <Header />
     <main
-      class="max-w-screen-md mx-auto px-3 grid place-items-center grid-cols-2 sm:grid-cols-3 gap-10">
+      class="w-full max-w-screen-md px-3 grid place-items-center grid-cols-2 sm:grid-cols-3 gap-10">
       <Hero />
       <slot />
     </main>

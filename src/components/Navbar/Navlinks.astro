@@ -16,10 +16,10 @@ const isActive = (path: string) => Astro.url.pathname === path;
     class:list={[
       'w-full py-1 px-3 hover:underline hover:underline-offset-4 font-bold text-center text-lg text-green-orange',
       {
-        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/')
+        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/me.html')
       }
     ]}>
-    <a href="/" class="hover:opacity-70">Home</a>
+    <a href="/me.html" class="hover:opacity-70">Me</a>
   </li>
   <li
     class:list={[

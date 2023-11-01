@@ -41,6 +41,7 @@ import MessageBubble from '@components/MessageBubble/MessageBubble';
   let typeWriterGreeting: any;
   let typeWriterWelcome: any;
   const hero = getData<boolean>('hero') ?? false;
+
   if (!hero) {
     setData('hero', true);
     typeWriterGreeting = new Typewriter(document.querySelector('[data-message-greeting]'), {
