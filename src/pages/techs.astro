@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/LayoutPage.astro';
 import { Icon } from 'astro-icon';
-import { FRONTEND, BACKEND, DATABASE, MOBILE, WORKFLOW, COURSES } from '@data/tech';
+import { COURSES } from '@data/tech';
 ---
 
 <Layout title="Techs">
@@ -9,79 +9,81 @@ import { FRONTEND, BACKEND, DATABASE, MOBILE, WORKFLOW, COURSES } from '@data/te
     This section can give you an idea about some tech I&apos;ve used in my short actual experience,
     but I&apos;m studying new stuff I need/want to discover or master.
   </p>
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <section class="flex-auto p-3 flex flex-col gap-2 border border-neutral-500 rounded-md">
+  <div class="grid grid-cols-2 gap-4">
+    <section class="p-2 flex flex-col justify-between gap-2 border border-neutral-500 rounded-lg">
       <h4 class="text-2xl font-semibold text-center">Frontend</h4>
-      <div class="flex-1 flex flex-col sm:flex-row items-center gap-4">
+      <div class="flex flex-wrap justify-center gap-4">
         <Icon name="ph:pencil-light" width="120" class="text-red-500" />
-        <ol class="flex-auto flex flex-col justify-center gap-1 text-lg">
-          {
-            FRONTEND.map(experience => {
-              return <li>{experience.name}</li>;
-            })
-          }
+        <ol class="flex flex-col justify-center gap-1 text-lg">
+          <li>Javascript</li>
+          <li>Jquery</li>
+          <li>Typescript</li>
+          <li>React</li>
+          <li>SolidJS</li>
+          <li>Dart</li>
         </ol>
       </div>
     </section>
-    <section class="flex-auto p-3 flex flex-col gap-2 border border-neutral-500 rounded-md">
+    <section class="p-2 flex flex-col justify-between gap-2 border border-neutral-500 rounded-lg">
       <h4 class="text-2xl font-semibold text-center">Backend</h4>
-      <div class="flex-1 flex flex-col sm:flex-row items-center gap-4">
+      <div class="flex flex-wrap justify-center gap-4">
         <Icon name="ph:plug" width="120" class="text-neutral-400" />
-        <ol class="flex-auto flex flex-col justify-center gap-1 text-lg">
-          {
-            BACKEND.map(experience => {
-              return <li>{experience.name}</li>;
-            })
-          }
+        <ol class="flex flex-col justify-center gap-1 text-lg">
+          <li>PHP</li>
+          <li>C#</li>
+          <li>NodeJS</li>
         </ol>
       </div>
     </section>
-    <section class="p-3 flex flex-col gap-2 border border-neutral-500 rounded-md">
+    <section class="p-2 flex flex-col justify-between gap-2 border border-neutral-500 rounded-lg">
       <h4 class="text-2xl font-semibold text-center">Database</h4>
-      <div class="flex-1 flex flex-col sm:flex-row items-center gap-4">
+      <div class="flex flex-wrap justify-center gap-4">
         <Icon name="mdi:database-search-outline" width="120" class="text-green" />
-        <ol class="flex-auto flex flex-col justify-center gap-1 text-lg">
-          {
-            DATABASE.map(experience => {
-              return <li>{experience.name}</li>;
-            })
-          }
+        <ol class="flex flex-col justify-center gap-1 text-lg">
+          <li>MySQL</li>
+          <li>SQL Server</li>
+          <li>MongoDB</li>
         </ol>
       </div>
     </section>
-    <section class="p-3 flex flex-col gap-2 border border-neutral-500 rounded-md">
+    <section class="p-2 flex flex-col justify-between gap-2 border border-neutral-500 rounded-lg">
       <h4 class="text-2xl font-semibold text-center">Mobile</h4>
-      <div class="flex-1 flex flex-col sm:flex-row items-center gap-4">
+      <div class="flex flex-wrap justify-center gap-4">
         <Icon name="raphael:iphone" width="120" class="text-yellow-600" />
-        <ol class="flex-auto flex flex-col justify-center gap-1 text-lg">
-          {
-            MOBILE.map(experience => {
-              return <li>{experience.name}</li>;
-            })
-          }
+        <ol class="flex flex-col justify-center gap-1 text-lg">
+          <li>Flutter</li>
         </ol>
       </div>
     </section>
-    <section
-      class="min-[500px]:col-span-2 p-3 flex flex-col gap-2 border border-neutral-500 rounded-md">
+    <section class="p-2 flex flex-col justify-between gap-2 border border-neutral-500 rounded-lg">
+      <h4 class="text-2xl font-semibold text-center">Frameworks</h4>
+      <div class="flex flex-wrap justify-center gap-4">
+        <Icon name="clarity:nodes-line" width="120" class="text-[#eec0c6]" />
+        <ol class="flex flex-col justify-center gap-1 text-lg">
+          <li>ASP.NET</li>
+          <li>NextJS</li>
+          <li>Astro</li>
+        </ol>
+      </div>
+    </section>
+    <section class="p-2 flex flex-col justify-between gap-2 border border-neutral-500 rounded-lg">
       <h4 class="text-2xl font-semibold text-center">Workflow</h4>
-      <div class="flex-1 flex flex-col sm:flex-row items-center gap-4">
-        <Icon name="mdi:workflow-outline" width="120" class="text-orange" />
-        <ol class="flex-auto flex flex-col justify-center gap-1 text-lg">
-          {
-            WORKFLOW.map(experience => {
-              return <li>{experience.name}</li>;
-            })
-          }
+      <div class="flex flex-wrap justify-center gap-4">
+        <Icon name="mdi:workflow-outline" width="120" class="text-violet-400" />
+        <ol class="flex flex-col justify-center gap-1 text-lg">
+          <li>Git (gitflow)</li>
+          <li>Linear/Notion</li>
+          <li>Docker (dev env)</li>
+          <li>Agile</li>
         </ol>
       </div>
     </section>
     <section
-      class="min-[500px]:col-span-2 p-3 flex flex-col gap-2 border border-neutral-500 rounded-md">
+      class="col-span-2 p-2 flex flex-col justify-between gap-2 border border-neutral-500 rounded-lg">
       <h4 class="text-2xl font-semibold text-center">Courses</h4>
-      <div class="flex-1 flex flex-col sm:flex-row items-center gap-4">
+      <div class="flex flex-wrap justify-center gap-4">
         <Icon name="carbon:course" width="120" class="text-blue" />
-        <ol class="max-w-full flex-auto flex flex-col justify-center gap-3 text-lg">
+        <ol class="max-w-full flex flex-col justify-center gap-3 text-lg">
           {
             COURSES.map(experience => {
               return (
