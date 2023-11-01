@@ -15,5 +15,21 @@ const { title } = Astro.props;
   <link rel="manifest" href="/manifest.json" />
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
+  <script is:inline>
+  const setThemeInitial = () => {
+    if (localStorage) {
+      const theme = localStorage.getItem('theme');
+      if (theme) {
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        return;
+      }
+    }
+    if (matchMedia('(prefers-color-scheme: dark)').matches) {
+      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add('dark');
+    }
+  };
+  setThemeInitial();
+  </script>
   <slot />
 </head>

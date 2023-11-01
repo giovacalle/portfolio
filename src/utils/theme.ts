@@ -12,3 +12,15 @@ export const toggleTheme = (): string => {
   document.documentElement.classList.toggle('dark', theme === 'dark');
   return theme;
 };
+
+export const setInitialTheme = () => {
+  const theme = getTheme();
+  if (theme) {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    return;
+  }
+  if (matchMedia('(prefers-color-scheme: dark)').matches) {
+    setTheme('dark');
+    document.documentElement.classList.add('dark');
+  }
+};
