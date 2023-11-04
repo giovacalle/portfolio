@@ -6,37 +6,35 @@ type Page = astroHTML.JSX.IntrinsicElements['div'] & {
   icon?: string;
 };
 const pages: { [key: string]: Page } = {
-  '/me.html': {
+  '/me/': {
     style: {
       backgroundImage: `url(${avatar})`
     },
     class: 'bg-cover bg-bottom bg-no-repeat'
   },
-  '/techs.html': {
+  '/techs/': {
     icon: 'mdi:code',
     class: 'bg-gradient-to-r from-violet-400 to-red-500'
   },
-  '/projects.html': {
+  '/projects/': {
     icon: 'mdi:draw',
     class: 'bg-gradient-to-r from-green to-blue-500'
   },
-  '/projects/': {
+  '/projects/*': {
     icon: 'mdi:draw',
     class: 'bg-gradient-to-l from-green to-slate-500'
   }
 };
 
 let slug = Astro.url.pathname;
-if (slug.includes('/projects/')) slug = '/projects/';
+if (slug.includes('/projects/') && slug.replace('/projects/', '').length > 0) slug = '/projects/*';
+
 const page = pages[slug];
 ---
 
-<div class="mt-20">
-  {slug}
-</div>
-<!-- <div
+<div
   class:list={['w-full h-60 mt-[66px] flex items-center justify-center rounded-b-xl', [page.class]]}
   style={page.style}
   transition:name={Astro.url.pathname}>
   {page.icon && <Icon name={page.icon} class="w-52" />}
-</div> -->
+</div>
