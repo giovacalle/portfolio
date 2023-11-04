@@ -51,12 +51,7 @@ const { entry } = Astro.props;
     {
       entry.data.images.map(image => (
         <>
-          <Image
-            src={import(`../../assets${image}`)}
-            height={400}
-            alt="project sample image"
-            class="object-cover"
-          />
+          <Image src={image} height={400} alt="project sample image" class="object-cover" />
         </>
       ))
     }
