@@ -20,6 +20,11 @@ html {
   background: #777;
   border-radius: 0.5rem;
 }
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
 /**/
 
 * {

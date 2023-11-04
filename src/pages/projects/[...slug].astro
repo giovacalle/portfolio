@@ -1,4 +1,7 @@
 ---
+import Layout from '@layouts/LayoutPage.astro';
+import Carousel from '@components/Carousel/Carousel';
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -12,4 +15,50 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 ---
 
-<h1>{entry.data.title}</h1>
+<Layout title={entry.data.title}>
+  <p>{entry.data.description}</p>
+  {
+    entry.data.website && (
+      <div>
+        <span class="bg-violet-200 text-violet-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+          Website
+        </span>
+        <a href={entry.data.website} target="_blank" class="hover:underline">
+          {entry.data.website}
+        </a>
+      </div>
+    )
+  }
+  <div>
+    <span class="bg-purple-200 text-purple-900 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+      Techs
+    </span>
+    <span>{entry.data.techs.join(', ')}</span>
+  </div>
+  {
+    entry.data.repo && (
+      <div>
+        <span class="bg-blue-200 text-blue-900 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded">
+          Repo
+        </span>
+        <a href={entry.data.repo} target="_blank" class="hover:underline">
+          {entry.data.repo}
+        </a>
+      </div>
+    )
+  }
+  <Carousel cssClass="mx-auto" client:visible>
+    {
+      entry.data.images.map(image => (
+        <>
+          <Image
+            src={import(`../../assets/${image}`)}
+            height={400}
+            alt="project sample image"
+            class="object-cover"
+          />
+        </>
+      ))
+    }
+  </Carousel>
+</Layout>

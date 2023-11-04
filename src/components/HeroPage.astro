@@ -19,10 +19,16 @@ const pages: { [key: string]: Page } = {
   '/projects.html': {
     icon: 'mdi:draw',
     class: 'bg-gradient-to-r from-green to-blue-500'
+  },
+  '/projects/': {
+    icon: 'mdi:draw',
+    class: 'bg-gradient-to-l from-green to-slate-500'
   }
 };
 
-const page = pages[Astro.url.pathname];
+let slug = Astro.url.pathname;
+if (slug.includes('/projects/')) slug = '/projects/';
+const page = pages[slug];
 ---
 
 <div
