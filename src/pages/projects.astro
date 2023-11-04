@@ -9,7 +9,7 @@ const projects = await getCollection('projects');
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     {
       projects.map(({ slug, data: project }) => (
-        <a href={`/projects/${slug}`} title={project.title}>
+        <a href={`/projects/${slug}/`} title={project.title} transition:name={`/projects/${slug}/`}>
           <div class="p-4 bg-pink rounded shadow shadow-slate-600 text-white">
             <h2 class="text-xl font-bold">{project.title}</h2>
             <p class="line-clamp-3">{project.description}</p>

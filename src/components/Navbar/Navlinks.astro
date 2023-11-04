@@ -16,27 +16,27 @@ const isActive = (path: string) => Astro.url.pathname === path;
     class:list={[
       'w-full py-1 px-3 hover:underline hover:underline-offset-4 font-bold text-center text-lg text-green-orange',
       {
-        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/me.html')
+        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/me/')
       }
     ]}>
-    <a href="/me.html" class="hover:opacity-70">Me</a>
+    <a href="/me/" class="hover:opacity-70">Me</a>
   </li>
   <li
     class:list={[
       'w-full py-1 px-3 hover:underline hover:underline-offset-4 font-bold text-center text-lg text-green-orange',
       {
-        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/techs.html')
+        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/techs/')
       }
     ]}>
-    <a href="/techs.html" class="hover:opacity-70">Techs</a>
+    <a href="/techs/" class="hover:opacity-70">Techs</a>
   </li>
   <li
     class:list={[
       'w-full py-1 px-3 hover:underline hover:underline-offset-4 font-bold text-center text-lg text-green-orange',
       {
-        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/projects.html')
+        'bg-orange sm:rounded-lg dark:bg-darkgreen': isActive('/projects/')
       }
     ]}>
-    <a href="/projects.html" class="hover:opacity-70">Projects</a>
+    <a href="/projects/" class="hover:opacity-70">Projects</a>
   </li>
 </ul>
