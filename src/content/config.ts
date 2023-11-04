@@ -8,7 +8,7 @@ const projects = defineCollection({
     images: z.array(z.string()).min(1),
     repo: z.string().optional(),
     website: z.string().optional(),
-    stack: z.array(z.string()),
+    techs: z.array(z.string()),
     tags: z.array(z.string()).optional()
   })
 });
