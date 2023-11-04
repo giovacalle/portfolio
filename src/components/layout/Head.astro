@@ -7,29 +7,54 @@ const { title } = Astro.props;
 <head>
   <ViewTransitions />
   <meta charset="utf-8" />
+  <meta name="author" content="Giovanni Callegari" />
+  <meta
+    name="keywords"
+    content="Giovanni Callegari, Gc, web developer, web, developer, webdev, web dev, web development, webdesign, web design, web designer, webdesigner"
+  />
+  <meta name="copyright" content="ISC" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Giovanni Callegari portfolio" />
+  <meta
+    name="description"
+    property="og:description"
+    content="Hello there, I'm Giovanni Callegari, a web developer from Italy."
+  />
   <meta name="theme-color" content="#000000" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gc's portfolio" />
+  <meta
+    property="og:image:alt"
+    content="Hello there, I'm Giovanni Callegari, a web developer from Italy."
+  />
+  <meta property="og:image" content="https://giova.dev/poster.png" />
+  <meta property="twitter:title" content="Gc's portfolio" />
+  <meta
+    property="twitter:description"
+    content="Hello there, I'm Giovanni Callegari, a web developer from Italy."
+  />
+  <meta name="twitter:image:src" content="https://giova.dev/poster.png" />
+  <meta name="apple-mobile-web-app-title" content="Gc's portfolio" />
+  <meta name="generator" content={Astro.generator} />
   <link rel="icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/logo192.png" />
   <link rel="manifest" href="/manifest.json" />
-  <meta name="generator" content={Astro.generator} />
+  <link rel="canonical" href={Astro.url.toString()} />
   <title>{title}</title>
   <script is:inline>
-  const setThemeInitial = () => {
-    if (localStorage) {
-      const theme = localStorage.getItem('theme');
-      if (theme) {
-        document.documentElement.classList.toggle('dark', theme === 'dark');
-        return;
+    const setThemeInitial = () => {
+      if (localStorage) {
+        const theme = localStorage.getItem('theme');
+        if (theme) {
+          document.documentElement.classList.toggle('dark', theme === 'dark');
+          return;
+        }
       }
-    }
-    if (matchMedia('(prefers-color-scheme: dark)').matches) {
-      localStorage.setItem('theme', 'dark');
-      document.documentElement.classList.add('dark');
-    }
-  };
-  setThemeInitial();
+      if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        localStorage.setItem('theme', 'dark');
+        document.documentElement.classList.add('dark');
+      }
+    };
+    setThemeInitial();
   </script>
   <slot />
 </head>
