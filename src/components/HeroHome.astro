@@ -11,7 +11,7 @@ import MessageBubble from '@components/MessageBubble/MessageBubble';
         data-message-greeting
         aria-label="Hello there, my name is Giovanni. I'm a software developer!"
         aria-hidden="true">
-        Hello there, my name is Giovanni. <br />I'm a software developer! 👨‍💻
+        Hello there 👋, my name is Giovanni. <br />I'm a software developer.👨‍💻
       </p>
     </MessageBubble>
     <MessageBubble data-message class="opacity-0">
@@ -31,24 +31,32 @@ import MessageBubble from '@components/MessageBubble/MessageBubble';
 </div>
 
 <script>
-  // @ts-ignore
   import Typewriter from 'typewriter-effect/dist/core';
+  import GraphemeSplitter from 'grapheme-splitter';
   import anime from 'animejs/lib/anime.es.js';
   import { getData, setData } from '@utils/sessionStorage';
 
   let greetingBubbleUpdate = 0;
   let welcomeBubbleUpdate = 0;
-  let typeWriterGreeting: any;
-  let typeWriterWelcome: any;
+  let typeWriterGreeting: typeof Typewriter;
+  let typeWriterWelcome: typeof Typewriter;
   const hero = getData<boolean>('hero') ?? false;
 
   if (!hero) {
     setData('hero', true);
+
+    const stringSplitter = (val: string) => {
+      const splitter = new GraphemeSplitter();
+      return splitter.splitGraphemes(val);
+    }; // need to split graphemes to support emojis
+
     typeWriterGreeting = new Typewriter(document.querySelector('[data-message-greeting]'), {
-      delay: 75
+      delay: 75,
+      stringSplitter
     });
     typeWriterWelcome = new Typewriter(document.querySelector('[data-message-welcome]'), {
-      delay: 75
+      delay: 75,
+      stringSplitter
     });
   }
 
@@ -83,9 +91,9 @@ import MessageBubble from '@components/MessageBubble/MessageBubble';
       greetingBubbleUpdate++;
 
       typeWriterGreeting
-        .typeString('Hello there 🙋‍♂️, my name is Giovanni.<br />')
+        .typeString('Hello there 👋, my name is Giovanni.<br />')
         .pauseFor(300)
-        .typeString('<span>I&apos;m a software developer.</span>')
+        .typeString('<span>I&apos;m a software developer.👨‍💻</span>')
         .pauseFor(1000)
         .start()
         .callFunction(() => {
