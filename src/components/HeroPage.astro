@@ -31,9 +31,12 @@ if (slug.includes('/projects/')) slug = '/projects/';
 const page = pages[slug];
 ---
 
-<div
+<div class="mt-20">
+  {slug}
+</div>
+<!-- <div
   class:list={['w-full h-60 mt-[66px] flex items-center justify-center rounded-b-xl', [page.class]]}
   style={page.style}
   transition:name={Astro.url.pathname}>
   {page.icon && <Icon name={page.icon} class="w-52" />}
-</div>
+</div> -->
