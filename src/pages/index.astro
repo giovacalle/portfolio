@@ -13,9 +13,9 @@ import avatar from '@assets/avatar.jpg?url';
     data-tile-me>
     <a
       href="/me/"
-      class="w-full h-full py-3 flex flex-col justify-center items-center bg-black-rich/10"
+      class="w-full h-full py-3 flex flex-col justify-center items-center bg-black-rich/10 text-white"
       transition:name="/me/">
-      <h2 class="text-white text-xl font-bold">About me</h2>
+      <h2 class="text-xl font-bold">About me</h2>
     </a>
   </Tile>
   <Tile
@@ -31,10 +31,10 @@ import avatar from '@assets/avatar.jpg?url';
   </Tile>
   <Tile
     round
-    class="max-h-[200px] sm:max-h-full col-span-2 sm:col-span-1 bg-gradient-to-r from-green to-blue-500 shadow-sm shadow-black-rich dark:shadow-slate-600 transition-all hover:scale-105">
+    class="relative max-h-[200px] sm:max-h-full col-span-2 sm:col-span-1 bg-gradient-to-r from-green to-blue-500 shadow-sm shadow-black-rich dark:shadow-slate-600 transition-all hover:scale-105">
     <a
       href="/projects/"
-      class="w-full h-full py-3 flex flex-col items-center justify-between text-white"
+      class="absolute w-full h-full py-3 flex flex-col items-center justify-between text-white"
       transition:name="/projects/">
       <Icon name="mdi:draw" class="w-3/4" />
       <h2 class="text-xl font-bold">Projects</h2>
