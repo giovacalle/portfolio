@@ -4,6 +4,7 @@ specifiers:
   '@astrojs/sitemap': ^3.0.3
   '@astrojs/solid-js': ^3.0.2
   '@astrojs/tailwind': ^5.0.2
+  '@fontsource-variable/nunito-sans': ^5.0.9
   '@types/animejs': ^3.1.7
   '@typescript-eslint/parser': ^5.59.1
   animejs: ^3.2.1
@@ -27,6 +28,7 @@ dependencies:
   '@astrojs/sitemap': 3.0.3
   '@astrojs/solid-js': 3.0.2_solid-js@1.8.4+vite@4.5.0
   '@astrojs/tailwind': 5.0.2_s47ntfpajafpcce5gaydc3h3xy
+  '@fontsource-variable/nunito-sans': 5.0.9
   '@types/animejs': 3.1.7
   animejs: 3.2.1
   astro: 3.4.2_typescript@5.0.4
@@ -922,6 +924,10 @@ packages:
     resolution: {integrity: sha512-kf9RB0Fg7NZfap83B3QOqOGg9QmD9yBudqQXzzOtn3i4y7ZUXe5ONeW34Gwi+TxhH4mvj72R1Zc300KUMa9Bng==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fontsource-variable/nunito-sans/5.0.9:
+    resolution: {integrity: sha512-mZzT9D6qQ2hwHSj8a2oexSh0a66YWQH40J7dP4BVljf6tqksVCGcErdVBllSSYs4c/SKh/n9J87kueX/Z9uLEA==}
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
