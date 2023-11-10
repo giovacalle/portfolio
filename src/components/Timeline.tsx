@@ -28,7 +28,7 @@ export const Timeline = (props: TimelineProps) => {
   });
 
   return (
-    <div class="w-full overflow-auto hide-scrollbar" ref={ref}>
+    <div class="w-full overflow-auto hide-scrollbar opacity-0" ref={ref}>
       <div class="relative w-max inline-flex gap-10 py-32 px-5">
         <div class="absolute left-0 w-full border-t border-neutral-200"></div>
         {timeline.map(year => (
