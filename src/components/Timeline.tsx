@@ -7,8 +7,6 @@ type TimelineProps = {
   timeline: CollectionEntry<'timeline'>[];
 };
 
-// todo: add pulse animation on dots (+ show description when clicked)
-
 export const Timeline = (props: TimelineProps) => {
   const { timeline } = props;
   let ref: HTMLDivElement | undefined;
