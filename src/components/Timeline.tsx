@@ -1,7 +1,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { onMount } from 'solid-js';
 import anime from 'animejs';
-import { Scrollers } from './Scrollers';
+import { Scrollers } from '@components/Scrollers';
 
 type TimelineProps = {
   timeline: CollectionEntry<'timeline'>[];

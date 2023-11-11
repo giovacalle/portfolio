@@ -13,9 +13,13 @@ export const Scrollers = (props: ScrollersProps) => {
 
     setIsScrollStart(scrollDiv.scrollLeft === 0);
 
-    scrollDiv?.addEventListener('scroll', () => {
-      setIsScrollStart(scrollDiv.scrollLeft === 0);
-    });
+    scrollDiv?.addEventListener(
+      'scroll',
+      () => {
+        setIsScrollStart(scrollDiv.scrollLeft === 0);
+      },
+      { passive: true }
+    );
   });
 
   return (
