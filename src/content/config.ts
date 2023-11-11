@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z, reference } from 'astro:content';
 
 const projects = defineCollection({
   type: 'content',
@@ -14,6 +14,26 @@ const projects = defineCollection({
     })
 });
 
+const timeline = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    nodes: z
+      .array(
+        z.object({
+          title: z.string(),
+          fromYear: z.number(),
+          toYear: z.number().optional(),
+          description: z.string().optional()
+        })
+      )
+      .max(2)
+      .optional(),
+    relatedProjects: z.array(reference('projects')).optional()
+  })
+});
+
 export const collections = {
-  projects
+  projects,
+  timeline
 };

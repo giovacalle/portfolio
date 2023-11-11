@@ -1,6 +1,10 @@
 ---
+import { Timeline } from '@components/Timeline.tsx';
 import Layout from '@layouts/LayoutPage.astro';
+import { getCollection } from 'astro:content';
+
 const yearsExperience = new Date().getFullYear() - 2018;
+const timeline = await getCollection('timeline');
 ---
 
 <Layout title="About me">
@@ -10,68 +14,7 @@ const yearsExperience = new Date().getFullYear() - 2018;
     <br />I love the entire process of development: from the concept, brainstorming sessions, all
     the way to solving real-life problems with code.
   </p>
-  <ol class="relative border-l border-gray-200 border-gray-700 my-4">
-    <li class="mb-6 ml-4">
-      <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-[0.36rem] bg-neutral-500">
-      </div>
-      <time class="mb-1 text-sm font-normal leading-none text-neutral-400">1999</time>
-      <h3 class="text-lg font-semibold">Born</h3>
-    </li>
-    <li class="mb-6 ml-4">
-      <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-[0.36rem] bg-neutral-500">
-      </div>
-      <time class="mb-1 text-sm font-normal leading-none text-neutral-400"> 2013-2018</time>
-      <h3 class="text-lg font-semibold">High school diploma</h3>
-      <p class="text-base font-normal text-neutral-500">
-        Computer science diploma at I.T.T. Eugenio Barsanti in Italy
-      </p>
-    </li>
-    <li class="mb-6 ml-4">
-      <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-[0.36rem] bg-neutral-500">
-      </div>
-      <time class="mb-1 text-sm font-normal leading-none text-neutral-400"> 2018-2020</time>
-      <h3 class="text-lg font-semibold">Full-stack web developer</h3>
-      <p class="text-base font-normal text-neutral-500">
-        I worked as full-stack web developer in Italian software house specialized in ERP to food
-        factories.
-      </p>
-    </li>
-    <li class="mb-6 ml-4">
-      <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-[0.36rem] bg-neutral-500">
-      </div>
-      <time class="mb-1 text-sm font-normal leading-none text-neutral-400"> 2020 to 2022</time>
-      <h3 class="text-lg font-semibold">Backend developer</h3>
-      <p class="text-base font-normal text-neutral-500">
-        I joined a team of .NET developers in education software provider to Italian and
-        Switzerland&apos;s private schools.
-      </p>
-    </li>
-    <li class="mb-6 ml-4">
-      <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-[0.36rem] bg-neutral-500">
-      </div>
-      <time class="mb-1 text-sm font-normal leading-none text-neutral-400"> 2020 to present</time>
-      <h3 class="text-lg font-semibold">Freelance</h3>
-      <p class="text-base font-normal text-neutral-500">I&apos;ve worked as backend developer</p>
-    </li>
-    <li class="mb-6 ml-4">
-      <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-[0.36rem] bg-neutral-500">
-      </div>
-      <time class="mb-1 text-sm font-normal leading-none text-neutral-400"> 2022 to 2023</time>
-      <h3 class="text-lg font-semibold">Mid full stack developer</h3>
-      <p class="text-base font-normal text-neutral-500">
-        I worked for 6 months as a fullstack developer in IT consultancy multinational company
-      </p>
-    </li>
-    <li class="mb-6 ml-4">
-      <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-[0.36rem] bg-neutral-500">
-      </div>
-      <time class="mb-1 text-sm font-normal leading-none text-neutral-400"> 2023 to present</time>
-      <h3 class="text-lg font-semibold">React developer</h3>
-      <p class="text-base font-normal text-neutral-500">
-        I am working as a React developer in a startup located in Milan
-      </p>
-    </li>
-  </ol>
+  <Timeline client:visible timeline={timeline} />
   <h2 class="text-xl text-green-orange font-semibold">Approach</h2>
   <p>
     During coding sessions I really like to collaborate with other team workers, showing my best
