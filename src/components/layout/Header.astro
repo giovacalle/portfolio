@@ -1,6 +1,7 @@
 ---
 import Mobile from '@components/Navbar/Mobile';
 import Navlinks from '@components/Navbar/Navlinks.astro';
+import { Image } from 'astro:assets';
 import { ThemeToggle } from '@components/Navbar/ThemeToggle';
 ---
 
@@ -11,7 +12,9 @@ import { ThemeToggle } from '@components/Navbar/ThemeToggle';
       <Navlinks isMobile />
     </Mobile>
     <span class="hover:underline hover:underline-offset-4 text-4xl font-bold text-green-orange">
-      <a href="/" data-astro-reload>Gc</a>
+      <a href="/" data-astro-reload>
+        <Image src="/favicon.ico" alt="Logo" width={40} height={40} data-logo />
+      </a>
     </span>
     <nav class="hidden sm:block">
       <Navlinks />
