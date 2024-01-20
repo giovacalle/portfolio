@@ -12,4 +12,4 @@ Welcome to my portfolio website! This website is built with Astro.js, SolidJS, T
 
 ## Aim
 
-The aim of this portfolio website is to showcase my skills and experience as a web developer. It includes information about my background, my education, my work experience, and my portfolio of projects. Visitors can also contact me through the website to discuss potential opportunities or just to say hello :)
+The aim of this portfolio website is to showcase my skills and experience as a web developer. It includes information about my background as my work experiences and some of my side projects. Visitors can also contact me through the website to discuss potential opportunities or just to say hello :)

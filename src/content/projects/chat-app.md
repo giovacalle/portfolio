@@ -7,7 +7,6 @@ images:
   - '../../assets/projects/node-chat-home.png'
   - '../../assets/projects/node-chat-room.png'
   - '../../assets/projects/node-chat-users-list.png'
-repo: https://github.com/giovacalle/node-chat-app
 techs:
   - NodeJS
   - Socket.io
